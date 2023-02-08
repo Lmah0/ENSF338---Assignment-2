@@ -5,15 +5,14 @@ def fib1(n):
         return(n)
     else:
         return(fib1(n-1) + fib1(n-2))
-def fib2(n, cache = {}):
+def fib2(n, cache={}):
     if n == 0 or n == 1:
-        return(n)
-    else:
-        if n in cache:
-            return(cache[n])
-        else:
-            cache[n] = fib2(n-1) + fib2(n-2)
-            return cache[n]
+        return n
+    if n in cache:
+        return cache[n]
+    result = fib2(n-1) + fib2(n-2)
+    cache[n] = result
+    return result
 
 def main():
     optimizedTime = 0
